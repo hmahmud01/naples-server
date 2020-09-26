@@ -10,6 +10,7 @@ class Document(models.Model):
     category = models.CharField(max_length=128, null=True, blank=True)
     doctype = models.CharField(max_length=128, null=True, blank=True)
     author = models.CharField(max_length=128, null=True, blank=True)
+    status = models.CharField(max_length=22, null=True, blank=True)
     document = models.FileField('document_files', upload_to='documents', blank=True, null=True)
     thumbnail = models.FileField('document_thumb', upload_to='thumbnails', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)

@@ -89,9 +89,9 @@
                         <div class="uk-margin">
                             <label class="uk-form-label" for="docs">Upload Docs</label>
                             <div class="uk-form-controls">
-                                <div uk-form-custom>
-                                    <input type="file" name="docs">
-                                    <button class="uk-button uk-button-default" type="button" tabindex="-1">Select</button>
+                                <div uk-form-custom="target: true">
+                                    <input type="file" name="docs">                                    
+                                    <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
                                 </div>
                             </div>                        
                         </div>  
@@ -99,9 +99,9 @@
                         <div class="uk-margin">
                             <label class="uk-form-label" for="docs">Upload Thumbnail</label>
                             <div class="uk-form-controls">
-                                <div uk-form-custom>
-                                    <input type="file" name="thumb">
-                                    <button class="uk-button uk-button-default" type="button" tabindex="-1">Select</button>
+                                <div uk-form-custom="target: true">
+                                    <input type="file" name="thumb">                                    
+                                    <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
                                 </div>
                             </div>                        
                         </div>  

@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Home Page Section -->
+<section class="main-section">
+    <div class="admin-section-top">
+        <div>
+            <div class="uk-section-secondary uk-preserve-color">                    
+                <div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-dark; top: 200">
+                    {% include 'nav_admin.html' %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- itemsList -->
+<section id="litigation-list">
+    <div class="uk-container">
+        <div class="head">
+            <h1 class="uk-heading-bullet">Document Upload</h1>
+            <p class="uk-heading-line"><span>Form For</span></p>
+        </div>
+
+        <p>Please Fill Up the Following Form for the DOCUMENT Upload Completion</p>
+
+        <div class="uk-child-width-1@m uk-margin" uk-grid>
+            <form action="{% url 'savedocument' %}" class="uk-form-horizontal uk-margin-large" method="post" enctype="multipart/form-data">{% csrf_token %}
+                <!-- DOCUMENT FORM SECTION -->
+                <div>
+                    <div class="uk-card uk-card-primary uk-card-hover uk-card-body">
+                        <h3 class="uk-card-title">Documet Information</h3>
+                    </div>
+                    <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+
+    
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="title">Title</label>
+                            <div class="uk-form-controls">
+                                <input class="uk-input" id="title" type="text" name="title" placeholder="Title">
+                            </div>
+                        </div>
+    
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="summary">Summary</label>
+                            <div class="uk-form-controls">
+                                <textarea class="uk-textarea" id="summary" rows="5" name="summary" placeholder="Summary"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="description">Description</label>
+                            <div class="uk-form-controls">
+                                <textarea class="uk-textarea" id="description" rows="5" name="description" placeholder="Description"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="category">Category</label>
+                            <div class="uk-form-controls">
+                                <select class="uk-select" id="category" name="category">
+                                    <option value="title1">Category Title</option>
+                                    <option value="title2">Category Title</option>
+                                    <option value="title3">Category Title</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="type">Type</label>
+                            <div class="uk-form-controls">
+                                <select class="uk-select" id="type" name="type">
+                                    <option value="paid">Paid</option>
+                                    <option value="free">Free</option>                                        
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="author">Author</label>
+                            <div class="uk-form-controls">
+                                <input class="uk-input" id="author" type="text" name="author" placeholder="Author">
+                            </div>
+                        </div>
+
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="docs">Upload Docs</label>
+                            <div class="uk-form-controls">
+                                <div uk-form-custom>
+                                    <input type="file" name="docs">
+                                    <button class="uk-button uk-button-default" type="button" tabindex="-1">Select</button>
+                                </div>
+                            </div>                        
+                        </div>  
+
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="docs">Upload Thumbnail</label>
+                            <div class="uk-form-controls">
+                                <div uk-form-custom>
+                                    <input type="file" name="thumb">
+                                    <button class="uk-button uk-button-default" type="button" tabindex="-1">Select</button>
+                                </div>
+                            </div>                        
+                        </div>  
+                    </div>
+                </div> 
+                <div class="uk-margin uk-flex uk-flex-right">
+                    <button class="uk-button uk-button-primary" type="Submit" tabindex="-1">Save</button>
+                    <a class="uk-button uk-button-Danger"  href="{% url 'dashboard' %}">Cancel</a>
+                    <!-- <button class="uk-button uk-button-Danger" type="button" tabindex="-1">Cancel</button>                      -->
+                </div>  
+            </form>
+        </div>
+    </div>
+</section>
+
+<section id="footer">
+    <div class="uk-padding">                            
+        <div class="uk-flex uk-flex-wrap uk-flex-wrap-around uk-flex-between uk-flex-middle">
+            <!-- <a class="uk-navbar-item uk-logo logo-size" href="index.html"><img src="img/logo_2.png" alt="zeros"></a>    -->
+            <a class="uk-navbar-item uk-logo logo-size" href="index.html">Project 1</a>  
+            <p class="uk-text-center"> <span class="zeros-sub-head copy">Copyright</span>  © <a href="#">innsire</a>@2020</p>
+        </div>                
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Home Page Section -->
+<section class="main-section">
+    <div class="admin-section-top">
+        <div>
+            <div class="uk-section-secondary uk-preserve-color">
+                <div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-dark; top: 200">
+                    <nav class="uk-navbar-container uk-padding uk-padding-remove-vertical" uk-navbar>
+                        <div class="uk-navbar-left">
+                            <ul class="uk-navbar-nav">
+                                <!-- <a class="uk-navbar-item uk-logo" href="index.html">Logo</a> -->
+                                <li>
+                                    <a href="">About</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'contact' %}">Contact Us</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'faq' %}">FAQ</a>
+                                </li>
+                            </ul>                            
+                        </div>
+                        <div class="uk-navbar-right">                            
+                            <ul class="uk-navbar-nav">
+                                
+                                <li>
+                                    <div>
+                                        <a class="uk-navbar-toggle" uk-search-icon href="#"></a>
+                                        <div class="uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
+                                            <form class="uk-search uk-search-navbar uk-width-1-1">
+                                                <input class="uk-search-input" type="search" placeholder="Search..." autofocus>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                                <!-- <li>
+                                    <a href="#modal-full" uk-toggle>Login</a>
+                                </li>                                        
+                                <li>
+                                    <a href="" uk-toggle="target: #client-request">Register</a>
+                                </li> -->
+                                <li>
+                                    <a href="#">User</a>
+                                    <div class="uk-navbar-dropdown">
+                                        <ul class="uk-nav uk-navbar-dropdown-nav uk-text-right">
+                                            <li class="uk-active"><a href="{% url 'profile' %}">Profile</a></li>
+                                            <li><a href="{% url 'changepassword' %}">Change Password</a></li>
+                                            <li><a href="/">Logout</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- itemsList -->
+<section id="litigation-list">
+    <div class="uk-container">
+        <div class="head">
+            <h1 class="uk-heading-bullet">FAQ</h1>
+            <p class="uk-heading-line"><span>GENERALIZED DESCRIPTIONS OF VARIOUS CRIMES</span></p>
+        </div>        
+        
+        <div id="article-Description">
+            <div class="uk-child-width-1@m uk-margin" uk-grid>
+                <div>
+                    <div class="uk-card uk-card-hover uk-card-body" uk-scrollspy="cls: uk-animation-slide-top;">
+                        <div uk-grid>
+                            <div class="uk-width-1-1">
+                                <h3 class="uk-text-center">GENERALIZED DESCRIPTIONS OF VARIOUS CRIMES </h3>
+                                <h4 class="uk-text-center"> ANY QUESTIONS? EMAIL US AT NAPLESPOLICEBEAT@GMAIL.COM </h4>
+
+                                <h5>FELONY VS. MISDEMEANOR </h5>    
+                                <p>FELONIES ARE CHARGES THAT MAY BE PUNISHABLE BY PRISON TIME. </p>                            
+                                <p>A FELONY IS EITHER A FIRST DEGREE, SECOND DEGREE, OR THIRD DEGREE. </p>
+                                <p>A THIRD DEGREE FELONY IS PUNISHABLE UP TO 5 YEARS IN PRISON.   </p>
+                                <p>A SECOND DEGREE FELONY IS PUNISHABLE BY UP TO 15 YEARS IN PRISON. </p>
+                                <p>A FIRST DEGREE FELONY IS A FELONY PUNISHABLE BY UP TO 30 YEARS IN PRISON, LIFE IN PRISON, OR THE DEATH PENALTY. </p>
+                                <p>MISDEMEANORS ARE CHARGES THAT MAY BE PUNISHABLE BY JAIL TIME. </p>
+                                <p>A MISDEMEANOR CHARGE IS EITHER A FIRST DEGREE MISDEMEANOR OR A SECOND DEGREE MISDEMEANOR. </p>
+                                <p>A FIRST DEGREE MISDEMEANOR IS PUNISHABLE BY UP TO ONE YEAR IN JAIL.   </p>
+                                <p>A SECOND DEGREE MISDEMEANOR IS USUALLY PUNISHABLE BY UP TO SIXTY DAYS IN JAIL, HOWEVER, THE MAXIMUM SENTENCES VARY.   </p>
+                                <p>FOR EXAMPLE, PETIT THEFT OF UNDER $100 IS A 2ND DEGREE MISDEMEANOR AND IS PUNISHABLE BY UP TO 60 DAYS IN JAIL.  </p>
+                                <p>BY CONTRAST, A DUI, FIRST OFFENSE, IS ALSO A 2ND DEGREE MISDEMEANOR, HOWEVER, IT IS PUNISHABLE BY UP TO 6 MONTHS IN JAIL. </p>
+
+                                <h5>DUI </h5>
+                                <p>DUI IS GENERALLY DESCRIBED AS DRIVING UNDER THE INFLUENCE OF DRUGS OR ALCOHOL TO THE EXTENT THAT THE DRIVER'S NORMAL FACULTIES HAVE BECOME IMPAIRED.   </p>
+                                <p>IN SOME CASES, A THIRD DUI CAN BE CHARGED AS A FELONY.   </p>
+                                <p>INJURY TO THE DRIVER OR ANOTHER PERSON CAN BE CHARGED AS A FELONY. </p>
+                                <p>IN FLORIDA A DRIVER WHOSE BLOOD ALCOHOL LEVEL IS .08% OR HIGHER IS PRESUMED TO BE IMPAIRED.   </p>
+                                <p>A DRIVER MAY REFUSE THE BREATHALYZER ONCE WITHOUT BEING CHARGED WITH A CRIME.  THEREAFTER, A SUBSEQUENT REFUSAL IS A FIRST DEGREE MISDEMEANOR PUNISHABLE BY UP TO ONE YEAR IN JAIL.   </p>
+                                <p>THE CHARGE OF DUI SOMETIMES MAY BE ACCOMPANIED WITH PROPERTY DAMAGE, HIT AND RUN, INJURY, FLEEING AND ELUDING, OR IN THE COMPANY OF A MINOR.   </p>
+                                <p>IF CONVICTED, THE DEFENDANT'S DRIVERS LICENSE WILL BE SUSPENDED FOR A PERIOD OF TIME.  HOW LONG THE PERSON'S LICENSE WILL BE SUSPENDED DEPENDS UPON THE NUMBER OF PRIOR DUI”S, THE FACTS OF THE CASE, THE BLOOD ALCHOL LEVEL,  INJURIES, OR PROPERTY DAMAGE.  IN SOME CASES, A PERSON'S LICENSE MAY BE PERMANENTLY REVOKED.  </p>
+
+                                <h5>ASSAULT AND BATTERY </h5>
+                                <p>ASSAULT IS AN ATTEMPT TO COMMIT BATTERY AND TO PLACE THE VICTIM IN FEAR OF A BATTERY.  ASSAULT IS A SECOND DEGREE MISDEMEANOR PUNISHABLE BY UP TO 60 DAYS IN JAIL. </p>
+                                <p>BATTERY IS THE UNLAWFUL TOUCHING OF ANOTHER WITHOUT THEIR PERMISSION AND IS A FIRST DEGREE MISDEMEANOR PUNISHABLE BY UP TO ONE YEAR IN JAIL.  IF THE PERSON HAS A PRIOR BATTERY, ANY SUBSEQUENT BATTERY MAY BE CHARGED AS A FELONY. </p>
+                                <p>IF A DEADLY WEAPON IS USED TO COMMIT EITHER ASSAULT OR BATTERY IT IS AN  AGGRAVATED ASSAULT OR AGGRAVATED BATTERY, BOTH OF WHICH ARE FELONIES. A DEADLY WEAPON DOES NOT NEED TO BE A GUN OR A KNIFE.  IT CAN BE PRETTY MUCH ANYTHING (IE:  FRYING PAN, CAR, OR BOOK, ETC.). </p>
+                                <p>DOMESTIC VIOLENCE IS THE SAME AS ASSAULT OR BATTERY EXCEPT THAT IT IS BETWEEN PEOPLE RELATED OR LIVING TOGETHER.  USUALLY THIS TYPE OF CRIME OCCURS BETWEEN A HUSBAND AND WIFE, SIGNIFICANT OTHERS, OR PARENT AND CHILD.   </p>
+                                <p>SEXUAL ASSAULT AND SEXUAL BATTERY INCLUDE ATTEMPTED RAPE, ATTEMPTED SEXUAL ASSAULT, STATUTORY RAPE, OR ANY OTHER OFFENCE INVOLVING A SEXUAL MOTIVE.  CONSENT IS ALWAYS REQUIRED OR IT IS A CRIME.  STATUTORY RAPE IS SEXUAL CONTACT WITH A MINOR.  THE LAW STATES THAT MINORS DO NOT HAVE THE LEGAL ABILITY TO CONSENT.  AGGRAVATED BATTERY AND ASSAULT ARE TYPICALLY FELONIES.  SEXUAL BATTERY CAN ALSO BE CHARGED AS A FIRST DEGREE FELONY, PUNISHABLE BY DEATH, IF THE BATTERY IS BETWEEN AN ADULT AND A CHILD UNDER THE AGE OF 12. </p>
+                                <p>BATTERY ON A POLICE OFFICER IS A FELONY. </p>
+
+                                <h5>THEFT</h5>
+                                <p>THEFT IS THE UNLAWFUL TAKING OF PROPERTY THAT BELONGS TO ANOTHER PERSON.  THEFT CAN BE CHARGED AS EITHER A MISDEMEANOR (PETIT THEFT) OR A FELONY (GRAND THEFT) AND THE DIFFERENCE DEPENDS UPON THE AMOUNT STOLEN.   </p>
+
+                                <h5>DRUG CRIMES </h5>
+                                <p>DRUG CRIMES ARE THE ILLEGAL POSSESSION OF A SUBSTANCE THAT A PERSON IS NOT ENTITLED TO HAVE.  FOR EXAMPLE:  POSSESION OF A CONTROLLED SUBSTANCE WITHOUT A PRESCRIPTION.  MOST OTHER ILLEGAL POSSESSION CASES ARE SELF-EXPLANITORY (IE: MARIJUANA, COCAINE, HEROIN, METHANPHETAMINE, ETC.) </p>
+                                <p>DRUG TRAFFIKING IS THE TRANSPORTATION OR POSSESSION OF A LARGE QUANTITY OF ILLEGAL DRUGS.  IT IS ALWAYS A FELONY AND FOR SOME TRAFFIKKING CASES IT MAY BE CHARGED AS A FIRST DEGREE FELONY WHICH IS PUNISHABLE BY UP TO 30 YEARS IN PRISON. </p>
+                                <p>POSSESSION OF DRUG PARAPHERNALIA IS HAVING AN ITEM THAT IS SPECIFICALLY BEING USED TO CONSUME OR POSSESS ILLEGAL DRUGS (IE: PIPE, STRAW, BAG WITHIN WHICH THE ILLEGAL SUBSTANCE IS CARRIED, DOLLAR BILL WITH RESIDUE, ETC.)   </p>
+
+                                <h5>BURGLARY AND TRESPASSING </h5>
+                                <p>BURGLARY IS THE ILLEGAL ENTERING INTO A HOME, BUILDING, OR VEHICLE TO WHICH THE ARRESTED PERSON HAS NO RIGHT TO BE AND WITH THE INTENT TO COMMIT A CRIME THEREIN.    </p>
+                                <p>TRESSPASSING IS NEARLY THE SAME AS BURGLARY ONLY WITHOUT THE INTENT TO COMMIT A CRIME. TRESSPASSING CAN BE ON A PIECE OF PROPERTY, A CONSTRUCTION SITE, OR ANY OTHER PLACE THE ARRESTED PERSON DOES NOT HAVE THE RIGHT TO BE.   </p>
+                                <p>BURLARY IS ALWAYS A FELONY.</p>
+                                <p>TRESSPASSING IS USUALLY A MISDEMEANOR.  TRESPASSING ON A CONSTRUCTION SITE IS A FELONY. </p>
+
+                                <h5>CRIMINAL MISCHIEF </h5>
+                                <p>CRIMINAL MISCHIEF IS THE INTENTIONAL DESTRUCTION OF ANOTHER PERSON'S PROPERTY.  IT MAY BE CHARGED AS A MISDEMEANOR OR A FELONY DEPENDING UPON THE AMOUNT OF DAMAGE. </p>
+
+                                <h5>WEAPON OFFENCES </h5>
+                                <p>THESE INCLUDE FELON IN POSSESIONN OF GUN OR AMMUNITION, CARRYING A CONCEALED WEAPON, AGGRAVATED BATTERY WITH A DEADLY WEAPON, AND AGGRAVATED ASSAULT WITH A DEADLY WEAPON.   </p>
+                                <p>A DEADLY WEAPON DOES NOT NEED TO BE A GUN OR A KNIFE.  IT CAN BE PRETTY MUCH ANYTHING (IE:  FRYING PAN, CAR, OR BOOK, ETC.). </p>
+
+                                <h5>DRIVING CRIMES OTHER THAN DUI </h5>
+                                <p>DRIVING WITH A SUSPENDED LICENSE IS A CRIME IF THE DRIVER KNEW OR SHOULD HAVE KNOWN THAT THEIR LICENSE HAS BEEN SUSPENDED.  THIS COULD BE THE RESULT OF NOT PAYING A TRAFFIC TICKET, TOO MANY TICKETS, FAILURE TO  PROVIDE PROOF OF INSURANCE, OR A DUI SUSPENSION.  A THIRD VIOLATION FOR DRIVING WITH A SUSPENDED LICENCE IS IS A FELONY.   </p>
+                                <p>NO VALID DRIVER'S LICENSE IS THE CRIME OF NEVER HAVING HAD A DRIVER”S  LICENSE.  THIS TYPE OF CRIME IS OFTEN COMMITED BY PEOPLE WHO ARE NOT IN THE UNITED STATES LEGALLY OR BY PEOPLE WHO NEVER RECEIVED A DRIVER'S LICENSE BECAUSE THEY NEVER TRIED TO GET A DRIVER'S LICENSE.  </p>
+                                <p>HIT AND RUN, IS SELF EXPLANATORY, HOWEVER, THE DRIVER MUST KNOW THAT THEY HAVE HIT SOMETHING. </p>
+
+                                <h5>FLEEING AND ELUDING </h5>
+                                <p>RUNNING FROM THE COPS IN A CAR. </p>
+
+                                <h5>RESISTING ARREST </h5>
+                                <p>RESISTING ARREST WITHOUT VIOLENCE IS A FIRST DEGREE MISDEMEANOR AND MAY INCLUDE NOT FOLLOWING A LAWFUL ORDER FROM THE POLICE, STRUGGLING WITH THE POLICE WHILE BEING PLACED INTO CUSTODY, OR BRACING WHILE BEING HAND-CUFFED.  </p>
+                                <p>RESISTING ARREST WITH VIOLENCE IS A FELONY. </p>
+
+                                <h4 class="uk-text-center"> ANY QUESTIONS? EMAIL US AT NAPLESPOLICEBEAT@GMAIL.COM </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<section id="footer">
+    <div class="uk-padding">                            
+        <div class="uk-flex uk-flex-wrap uk-flex-wrap-around uk-flex-between uk-flex-middle">
+            <!-- <a class="uk-navbar-item uk-logo logo-size" href="index.html"><img src="img/logo_2.png" alt="zeros"></a>    -->
+            <a class="uk-navbar-item uk-logo" href="/">Naples Police Beat</a>  
+            <p class="uk-text-center"> <span class="zeros-sub-head copy">Copyright</span>  © <a href="#">innsire</a>@2020</p>
+        </div>                
+    </div>
+</section>
+{% endblock %}

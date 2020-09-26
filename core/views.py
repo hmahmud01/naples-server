@@ -11,6 +11,11 @@ def home(request):
     return render(request, 'index.html', {'data' : documents, 'faq': faq})
 
 
+def faq(request):
+    data = ""
+    return render(request, 'faq.html', {'data': data})
+    
+
 def article(request, aid):
     article = Document.objects.get(id=aid)
     return render(request, 'article.html', {'data': article})

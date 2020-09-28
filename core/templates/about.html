@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Home Page Section -->
+<section class="main-section">
+    <div class="admin-section-top">
+        <div>
+            <div class="uk-section-secondary uk-preserve-color">
+                <div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-dark; top: 200">
+                    <nav class="uk-navbar-container uk-padding uk-padding-remove-vertical" uk-navbar>
+                        <div class="uk-navbar-left">
+                            <ul class="uk-navbar-nav">
+                                <!-- <a class="uk-navbar-item uk-logo" href="index.html">Logo</a> -->
+                                <li>
+                                    <a href="{% url 'about' %}">About</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'contact' %}">Contact Us</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'faq' %}">FAQ</a>
+                                </li>
+                            </ul>                            
+                        </div>
+                        <div class="uk-navbar-right">                            
+                            <ul class="uk-navbar-nav">
+                                
+                                <li>
+                                    <div>
+                                        <a class="uk-navbar-toggle" uk-search-icon href="#"></a>
+                                        <div class="uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
+                                            <form class="uk-search uk-search-navbar uk-width-1-1">
+                                                <input class="uk-search-input" type="search" placeholder="Search..." autofocus>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                                <!-- <li>
+                                    <a href="#modal-full" uk-toggle>Login</a>
+                                </li>                                        
+                                <li>
+                                    <a href="" uk-toggle="target: #client-request">Register</a>
+                                </li> -->
+                                <li>
+                                    <a href="#">User</a>
+                                    <div class="uk-navbar-dropdown">
+                                        <ul class="uk-nav uk-navbar-dropdown-nav uk-text-right">
+                                            <li class="uk-active"><a href="{% url 'profile' %}">Profile</a></li>
+                                            <li><a href="{% url 'changepassword' %}">Change Password</a></li>
+                                            <li><a href="/">Logout</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- itemsList -->
+<section id="litigation-list">
+    <div class="uk-container">       
+        
+        <div id="article-Description">
+            <div class="uk-child-width-1@m uk-margin" uk-grid>
+                <div>
+                    <div class="uk-card uk-card-hover uk-card-body uk-margin-top" uk-scrollspy="cls: uk-animation-slide-top;">
+                        <div uk-grid>
+                            <div class="uk-width-1-1">
+                                <h3 class="uk-text-center">ABOUT NAPLES POLICE BEAT</h3>
+                                <h4 class="uk-text-center"> HELLO AND THANK YOU FOR VISITING NAPLES POLICE BEAT!  </h4>
+                                <h4 class="uk-text-center"> OUR MISSION STATEMENT </h4>
+
+                                <p class="uk-margin-bottom">NAPLES POLICE BEAT WAS FOUNDED BY CONCERNED CITIZENS IN AN EFFORT TO PROVIDE INFORMATION REGARDING ALLEGED CRIMINAL ACTIVITY* IN OUR COMMUNITY. AS WE ALL KNOW, NAPLES, COLLIER COUNTY, AND SOUTHWEST FLORIDA HAVE YEAR-ROUND RESIDENTS, SEASONAL RESIDENTS, VACATIONERS, AND OTHER VISITORS WHO WOULD LIKE TO KNOW WHAT'S GOING ON HERE. </p>
+                                <p class="uk-margin-bottom">THE TYPES OF CRIMES AND THE LOCATION OF CRIMES CAN EFFECT MANY DIFFERENT FACTORS (IE: REAL ESTATE VALUE, WHERE TO STAY, WHERE TO SHOP, WHERE TO EAT).  OUR ENDEAVOR IS JOUNALISTIC IN NATURE BY WAY OF SUMMARIZING ARREST INFORMATION AND COMMENTING ON THE SAME. </p>
+                                <p class="uk-margin-bottom">WE FOCUS ON VIOLENT CRIMES, DRUG CRIMES, DRUG TRAFFIKKING, DUI, THEFTS, PROPERTY CRIMES, AND VARIOUS OTHER OFFENSES TO NUMEROUS TO LIST.  </p>
+                                <p class="uk-margin-bottom">UPDATES AS TO RECENT ALLEGED CRIMINAL ACTIVITY* WILL BE PROVIDED DAILY ASSUMING THERE IS SOMETHING INTERESTING TO REPORT.  WE CANNOT AND DO NOT PROMISE NEW CONTENT EVERYDAY AND WE WILL PUBLISH INFORMATION ONLY FOR THOSE ARRESTS THAT THE EMPLOYEES OF NAPLES POLICE BEAT DEEM RELEVANT TO OUR MISSION.  </p>
+                                <p class="uk-margin-bottom">WE HOPE YOU FIND NAPLES POLICE BEAT INFORMATIONAL AND USEFUL.  PLEASE DO NOT HESITATE CONTACT US WITH ANY QUESTIONS THAT YOU MAY HAVE.   </p>
+                                <p class="uk-margin-bottom">PURSUANT TO THE UNITED STATES CONSTITUTION, ALL OF THOSE ARRESTED IN AMERICA ARE PRESUMED INNOCENT UNTIL PROVEN GUILTY.  </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<section id="footer">
+    <div class="uk-padding">                            
+        <div class="uk-flex uk-flex-wrap uk-flex-wrap-around uk-flex-between uk-flex-middle">
+            <!-- <a class="uk-navbar-item uk-logo logo-size" href="index.html"><img src="img/logo_2.png" alt="zeros"></a>    -->
+            <a class="uk-navbar-item uk-logo" href="/">Naples Police Beat</a>  
+            <p class="uk-text-center"> <span class="zeros-sub-head copy">Copyright</span>  © <a href="#">innsire</a>@2020</p>
+        </div>                
+    </div>
+</section>
+{% endblock %}

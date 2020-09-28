@@ -14,7 +14,12 @@ def home(request):
 def faq(request):
     data = ""
     return render(request, 'faq.html', {'data': data})
-    
+
+
+def about(request):
+    data = ""
+    return render(request, 'about.html', {'data': data})
+
 
 def article(request, aid):
     article = Document.objects.get(id=aid)

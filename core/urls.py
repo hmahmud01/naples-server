@@ -6,6 +6,7 @@ from core import views
 
 urlpatterns = [
     path('', views.home, name="home"),
+    path('about/', views.about, name="about"),
     path('faq/', views.faq, name="faq"),
     path('article/<int:aid>/', views.article, name="article"),
     path('changepassword/', views.changePassword, name="changepassword"),

@@ -36,17 +36,20 @@ def contact(request):
     return render(request, 'contact.html', {'data': data})
 
 
+@login_required(login_url='/login/')
 def dashboard(request):
     documents = Document.objects.all()
     faq = Faq.objects.all()
     return render(request, 'dashboard.html', {'data': documents, 'faq': faq})
 
 
+@login_required(login_url='/login/')
 def documentAdd(request):
     data = ""
     return render(request, 'documentAdd.html', {'data': data})
 
 
+@login_required(login_url='/login/')
 def savedocument(request):
     print(request)
     print("POST DATA")
@@ -111,6 +114,7 @@ def savedocument(request):
     return redirect('dashboard')
 
 
+@login_required(login_url='/login/')
 def savefaq(request):
     post_data = request.POST
     faq = Faq(
@@ -119,12 +123,51 @@ def savefaq(request):
     )
     faq.save()
     return redirect('dashboard')
+    
+
+def createAccount(request):
+    data = "failed"
+    post_data = request.POST
+    if post_data['pass'] == post_data['conf_pass']:
+        user = User.objects.create_user(post_data['client_phone'], post_data['client_email'], post_data['pass'])
+        appuser = AppUser(
+            user = user,
+            name = post_data['client_name'],
+            email = post_data['client_email'],
+            username = post_data['client_phone'],
+            phone = post_data['client_phone'],            
+        )        
+        appuser.save()
+        return redirect('/')
+    else:
+        return redirect('about')
 
 
 def login(request):
     data = ""
     return render(request, 'login.html', {'data': data})
+ 
 
+def verifylogin(request):
+    post_data = request.POST
+    if 'user' and 'pass' in post_data:
+        user = authenticate(
+            request,
+            username = post_data['user'],
+            password = post_data['pass']
+        )
+        if user is None:
+            return redirect('/')
+        elif user.is_superuser:
+            auth_login(request, user)
+            return redirect('dashboard')
+        else:
+            auth_login(request, user)            
+            return redirect('/')
+
+def userLogout(request):
+    logout(request)
+    return redirect('/')
 
 def profile(request):
     data = ""

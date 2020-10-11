@@ -130,13 +130,18 @@ def createAccount(request):
     post_data = request.POST
     if post_data['pass'] == post_data['conf_pass']:
         user = User.objects.create_user(post_data['client_phone'], post_data['client_email'], post_data['pass'])
+        
         appuser = AppUser(
             user = user,
             name = post_data['client_name'],
             email = post_data['client_email'],
             username = post_data['client_phone'],
-            phone = post_data['client_phone'],            
+            phone = post_data['client_phone'],
+            status = "active",
+            subscription_type = post_data['subscription_type'],
+            charge = 0.00,
         )        
+        
         appuser.save()
         return redirect('/')
     else:
@@ -171,4 +176,7 @@ def userLogout(request):
 
 def profile(request):
     data = ""
-    return render(request, 'profile.html', {'data': data})
+    user_id = request.user.id
+    appuser = AppUser.objects.get(user_id=user_id)
+    print(user_id)
+    return render(request, 'profile.html', {'data': appuser})

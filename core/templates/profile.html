@@ -35,22 +35,22 @@
                                                             <hr>
                                                             <dl class="uk-description-list">
                                                                 <dt>Name</dt>
-                                                                <dd class="uk-text-large">Full Name</dd>
+                                                                <dd class="uk-text-large">{{ data.name }}</dd>
                                                                 <dt>Username</dt>
-                                                                <dd class="uk-text-large">Username</dd>
+                                                                <dd class="uk-text-large">{{ data.username }}</dd>
                                                                 <dt>Email Address</dt>
-                                                                <dd class="uk-text-large">email</dd>
+                                                                <dd class="uk-text-large">{{ data.email }}</dd>
                                                                 <dt>Phone Number</dt>
-                                                                <dd class="uk-text-large">+02##########</dd>
+                                                                <dd class="uk-text-large">{{ data.phone }}</dd>
                                                                 <dt>Home Address</dt>
-                                                                <dd class="uk-text-large">Stree Address / Home Address</dd>                                                            
+                                                                <dd class="uk-text-large">{{ data.address }}</dd>                                                            
                                                             </dl>  
                                                         </div>
                                                         <div class="uk-width-expand@m">
                                                             <div class="uk-margin-bottom">
                                                                 <h4>Subscription</h4>
                                                                 <hr>
-                                                                <p>You Have subscribed to plan A (0.00 $/month)</p>
+                                                                <p>You Have subscribed to {{ data.subscription_type }} ({{ data.charge }} $/month)</p>
                                                                 <p>If You Want to update the subscription please click on the following link.</p>
                                                                 <a class="uk-button uk-button-text" href="#">Update Subscription</a>
                                                             </div>

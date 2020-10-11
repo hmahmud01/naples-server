@@ -30,7 +30,11 @@ class AppUser(models.Model):
     email = models.EmailField(max_length=128, null=True, blank=True)
     username = models.CharField(max_length=32, null=True, blank=True)
     phone = models.CharField(max_length=22, null=True, blank=True)
-    Address = models.CharField(max_length=64, null=True, blank=True)
+    address = models.CharField(max_length=64, null=True, blank=True)
+    status = models.CharField(max_length=64, null=True, blank=True)
+    subscription_type = models.CharField(max_length=64, null=True, blank=True)
+    charge = models.FloatField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
         return self.username

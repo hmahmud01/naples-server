@@ -13,10 +13,13 @@
                             <ul class="uk-navbar-nav">
                                 <!-- <a class="uk-navbar-item uk-logo" href="index.html">Logo</a> -->
                                 <li>
-                                    <a href="">About</a>
+                                    <a href="{% url 'about' %}">About</a>
                                 </li>
                                 <li>
-                                    <a href="">Contact Us</a>
+                                    <a href="{% url 'contact' %}">Contact Us</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'faq' %}">FAQ</a>
                                 </li>
                             </ul>                            
                         </div>
@@ -35,21 +38,24 @@
                                 </li>
                                 
                                 <li>
-                                    <a href="#modal-full" uk-toggle>Login</a>
-                                </li>                                        
-                                <li>
                                     <a href="" uk-toggle="target: #client-request">Register</a>
                                 </li>
+                                {% if user.is_authenticated %}
                                 <li>
-                                    <a href="#">Parent</a>
+                                    <a href="#">{{request.user.username}}</a>                        
                                     <div class="uk-navbar-dropdown">
-                                        <ul class="uk-nav uk-navbar-dropdown-nav">
-                                            <li class="uk-active"><a href="#">Active</a></li>
-                                            <li><a href="#">Item</a></li>
-                                            <li><a href="#">Item</a></li>
+                                        <ul class="uk-nav uk-navbar-dropdown-nav uk-text-right">
+                                            <li class="uk-active"><a href="{% url 'profile' %}">Profile</a></li>
+                                            <li><a href="{% url 'changepassword' %}">Change Password</a></li>
+                                            <li><a href="{% url 'userLogout' %}">Logout</a></li>
                                         </ul>
                                     </div>
                                 </li>
+                                {% else %}
+                                <li>
+                                    <a href="#modal-full" uk-toggle>Login</a>
+                                </li>  
+                                {% endif %}
                             </ul>
                         </div>
                     </nav>
@@ -175,7 +181,7 @@
     <div class="uk-padding">                            
         <div class="uk-flex uk-flex-wrap uk-flex-wrap-around uk-flex-between uk-flex-middle">
             <!-- <a class="uk-navbar-item uk-logo logo-size" href="index.html"><img src="img/logo_2.png" alt="zeros"></a>    -->
-            <a class="uk-navbar-item uk-logo logo-size" href="index.html">Naples Police Beat</a>  
+            <a class="uk-navbar-item uk-logo" href="/">Naples Police Beat</a>  
             <p class="uk-text-center"> <span class="zeros-sub-head copy">Copyright</span>  © <a href="#">innsire</a>@2020</p>
         </div>                
     </div>

@@ -11,23 +11,23 @@
                         <div class="uk-flex uk-flex-column uk-animation-slide-top-small">
                             <div>
                                 <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-bottom">                                        
-                                    <h4 class="zeros-sub-head uk-text-center">Khan Saifur Rahman <br> & Associates</h4>
+                                    <h4 class="zeros-sub-head uk-text-center">Naples Police Beats</h4>
                                     <p class="uk-flex uk-flex-center uk-margin-small-bottom">Login With your Credentials</p>
-                                    <form class="uk-form-stacked">
+                                    <form class="uk-form-stacked" method="post" action="{% url 'verifylogin' %}">{% csrf_token %}
                                         <div class="uk-margin">
-                                            <label class="uk-form-label" for="form-stacked-text">Email Address</label>
+                                            <label class="uk-form-label" for="user">Username</label>
                                             <div class="uk-form-controls">
-                                                <input class="uk-input" id="form-stacked-text" type="email" placeholder="Email">
+                                                <input class="uk-input" id="user" name="user" type="text" placeholder="Username (The Phone Number You provided)">
                                             </div>
                                         </div>
-
+                
                                         <div class="uk-margin">
-                                            <label class="uk-form-label" for="form-stacked-text">Password</label>
+                                            <label class="uk-form-label" for="pass">Password</label>
                                             <div class="uk-form-controls">
-                                                <input class="uk-input" id="form-stacked-text" type="password" placeholder="Password">
+                                                <input class="uk-input" id="pass" name="pass" type="password" placeholder="Password">
                                             </div>
-                                        </div>                              
-                                        <a type="button" class="uk-button uk-button-danger uk-width-1-1" href="dashboard.html">Login</a>
+                                        </div>                            
+                                        <button class="uk-button uk-button-primary" type="submit">Submit</button>
                                     </form>
                                     <div class="uk-flex uk-flex-center uk-flex-middle">
                                         <p>New Member? <a class="uk-button uk-button-text" href="registration.html">Create Account</a></p>
@@ -41,12 +41,12 @@
             </div>  
             <div class="uk-width-expand@m">
                 <div class="h-100">
-                    <div class="uk-background-cover uk-dark uk-panel" uk-parallax="bgy: -200" style="background-image: url(img/login.jpg);">
+                    <div class="uk-background-cover uk-dark uk-panel" uk-parallax="bgy: -200" style="background-image: url('/static/img/login.jpg');">
                         <div class="h-100 uk-flex uk-flex-right uk-flex-bottom">
                             <div class="uk-flex-column">
                                 <div class="uk-flex uk-flex-column uk-animation-slide-top-small uk-margin-bottom">
                                     <div>
-                                        <img src="img/logo_2.png" width="385" alt="logo" uk-img>
+                                        <!-- <img src="img/logo_2.png" width="385" alt="logo" uk-img> -->
                                     </div>                            
                                 </div>  
                             </div>                                                  

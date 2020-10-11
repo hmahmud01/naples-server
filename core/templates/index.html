@@ -43,24 +43,24 @@
                 <div class="uk-background-cover" style="background-image: url('/static/img/login.jpg');" uk-height-viewport></div>
                 <div class="uk-padding-large">
                     <h1>Login With your Credentials</h1>
-                    <form class="uk-form-stacked">
+                    <form class="uk-form-stacked" method="post" action="{% url 'verifylogin' %}">{% csrf_token %}
 
                         <div class="uk-margin">
-                            <label class="uk-form-label" for="form-stacked-text">Email</label>
+                            <label class="uk-form-label" for="user">Username</label>
                             <div class="uk-form-controls">
-                                <input class="uk-input" id="form-stacked-text" type="text" placeholder="Email">
+                                <input class="uk-input" id="user" name="user" type="text" placeholder="Username (The Phone Number You provided)">
                             </div>
                         </div>
 
                         <div class="uk-margin">
-                            <label class="uk-form-label" for="form-stacked-text">Password</label>
+                            <label class="uk-form-label" for="pass">Password</label>
                             <div class="uk-form-controls">
-                                <input class="uk-input" id="form-stacked-text" type="password" placeholder="Password">
+                                <input class="uk-input" id="pass" name="pass" type="password" placeholder="Password">
                             </div>
                         </div>
                         
                         <div class="uk-margin" uk-margin>
-                            <button class="uk-button uk-button-primary">Submit</button>
+                            <button class="uk-button uk-button-primary" type="submit">Submit</button>
                         </div>
                     
                     </form>
@@ -230,11 +230,11 @@
             <h3 class="uk-h4 zeros-head uk-text-muted">Register</h3>      
             <p class="zeros-sub-head">On the go</p>
 
-            <form class="uk-form-stacked">
+            <form class="uk-form-stacked" method="post" action="{% url 'createaccount' %}">{% csrf_token %}
                 <div class="uk-margin">
                     <label class="uk-form-label" for="client_name">Name</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input" id="cliente_name" type="text" name="cliente_name" placeholder="Full Name">
+                        <input class="uk-input" id="client_name" type="text" name="client_name" placeholder="Full Name">
                     </div>
                 </div>
             
@@ -252,9 +252,15 @@
                     </div>
                 </div>
                 <div class="uk-margin">
-                    <label class="uk-form-label" for="client_address">Address</label>
+                    <label class="uk-form-label" for="pass">Password</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input" id="client_address" type="text" name="client_address" placeholder="Home Addresss">
+                        <input class="uk-input" id="pass" type="password" name="pass" placeholder="Password">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="conf_pass">Confirm Password</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="conf_pass" type="password" name="conf_pass" placeholder="Confirm Password">
                     </div>
                 </div>
             
@@ -263,11 +269,11 @@
                     <div class="uk-form-controls">
                         <label><input class="uk-radio" type="radio" name="case_type"> Method 1</label><br>
                         <label><input class="uk-radio" type="radio" name="case_type"> method 2</label><br>
-                        <label><input class="uk-radio" type="radio" name="case_type"> method 3</label>
+                        <label><input class="uk-radio" type="radio" name="case_type"> free</label>
                     </div>
                 </div>        
                 <div class="uk-margin">
-                    <button class="uk-button uk-button-danger">Register</button>
+                    <button class="uk-button uk-button-danger" type="submit">Register</button>
                 </div>    
             </form>
         </div>

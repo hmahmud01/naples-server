@@ -15,7 +15,10 @@ urlpatterns = [
     path('documentadd/', views.documentAdd, name="documentadd"),
     path('savedocument', views.savedocument, name='savedocument'),
     path('savefaq/', views.savefaq, name='savefaq'),
+    path('createaccount/', views.createAccount, name='createaccount'),
     path('login/', views.login, name="login"),
+    path('verifylogin/', views.verifylogin, name="verifylogin"),
+    path('userLogout/', views.userLogout, name="userLogout"),
     path('profile/', views.profile, name="profile"),
 ]
 

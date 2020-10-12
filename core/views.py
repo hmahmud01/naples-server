@@ -52,7 +52,10 @@ def contact(request):
 def dashboard(request):
     documents = Document.objects.all()
     faq = Faq.objects.all()
-    return render(request, 'dashboard.html', {'data': documents, 'faq': faq})
+    if request.user.is_superuser:
+        return render(request, 'dashboard.html', {'data': documents, 'faq': faq})   
+    else:
+        return redirect('/')
 
 
 @login_required(login_url='/login/')

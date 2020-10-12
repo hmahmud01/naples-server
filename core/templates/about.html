@@ -37,22 +37,25 @@
                                     </div>
                                 </li>
                                 
-                                <!-- <li>
-                                    <a href="#modal-full" uk-toggle>Login</a>
-                                </li>                                        
                                 <li>
                                     <a href="" uk-toggle="target: #client-request">Register</a>
-                                </li> -->
+                                </li>
+                                {% if user.is_authenticated %}
                                 <li>
-                                    <a href="#">User</a>
+                                    <a href="#">{{request.user.username}}</a>                        
                                     <div class="uk-navbar-dropdown">
                                         <ul class="uk-nav uk-navbar-dropdown-nav uk-text-right">
                                             <li class="uk-active"><a href="{% url 'profile' %}">Profile</a></li>
                                             <li><a href="{% url 'changepassword' %}">Change Password</a></li>
-                                            <li><a href="/">Logout</a></li>
+                                            <li><a href="{% url 'userLogout' %}">Logout</a></li>
                                         </ul>
                                     </div>
                                 </li>
+                                {% else %}
+                                <li>
+                                    <a href="{% url 'login' %}" uk-toggle>Login</a>
+                                </li>  
+                                {% endif %}
                             </ul>
                         </div>
                     </nav>
@@ -78,13 +81,13 @@
                                 <h4 class="uk-text-center"> HELLO AND THANK YOU FOR VISITING NAPLES POLICE BEAT!  </h4>
                                 <h4 class="uk-text-center"> OUR MISSION STATEMENT </h4>
 
-                                <p class="uk-margin-bottom">NAPLES POLICE BEAT WAS FOUNDED BY CONCERNED CITIZENS IN AN EFFORT TO PROVIDE INFORMATION REGARDING ALLEGED CRIMINAL ACTIVITY* IN OUR COMMUNITY. AS WE ALL KNOW, NAPLES, COLLIER COUNTY, AND SOUTHWEST FLORIDA HAVE YEAR-ROUND RESIDENTS, SEASONAL RESIDENTS, VACATIONERS, AND OTHER VISITORS WHO WOULD LIKE TO KNOW WHAT'S GOING ON HERE. </p>
-                                <p class="uk-margin-bottom">THE TYPES OF CRIMES AND THE LOCATION OF CRIMES CAN EFFECT MANY DIFFERENT FACTORS (IE: REAL ESTATE VALUE, WHERE TO STAY, WHERE TO SHOP, WHERE TO EAT).  OUR ENDEAVOR IS JOUNALISTIC IN NATURE BY WAY OF SUMMARIZING ARREST INFORMATION AND COMMENTING ON THE SAME. </p>
-                                <p class="uk-margin-bottom">WE FOCUS ON VIOLENT CRIMES, DRUG CRIMES, DRUG TRAFFIKKING, DUI, THEFTS, PROPERTY CRIMES, AND VARIOUS OTHER OFFENSES TO NUMEROUS TO LIST.  </p>
-                                <p class="uk-margin-bottom">UPDATES AS TO RECENT ALLEGED CRIMINAL ACTIVITY* WILL BE PROVIDED DAILY ASSUMING THERE IS SOMETHING INTERESTING TO REPORT.  WE CANNOT AND DO NOT PROMISE NEW CONTENT EVERYDAY AND WE WILL PUBLISH INFORMATION ONLY FOR THOSE ARRESTS THAT THE EMPLOYEES OF NAPLES POLICE BEAT DEEM RELEVANT TO OUR MISSION.  </p>
-                                <p class="uk-margin-bottom">WE HOPE YOU FIND NAPLES POLICE BEAT INFORMATIONAL AND USEFUL.  PLEASE DO NOT HESITATE CONTACT US WITH ANY QUESTIONS THAT YOU MAY HAVE.   </p>
+                                <p class="uk-margin-bottom">NAPLESPOLICEBEAT.COM WAS FOUNDED BY CONCERNED CITIZENS IN AN EFFORT TO PROVIDE DAILY UPDATES REGARDING ALLEGED CRIMINAL ACTIVITY AND ARRESTS IN NAPLES, COLLIER COUNTY, AND SOUTHWEST FLORIDA. </p>
+                                <p class="uk-margin-bottom">HAVE YOU EVER WANTED TO LEARN MORE ABOUT ALLEGED CRIMINAL ACTIVITY THAT THE MEDIA HAS GLOSSED OVER OR NOT COVERED AT ALL? WHY DIDN'T THE MEDIA REPORT ON A BURGLARY IN DOWNTOWN NAPLES? WHY DIDN'T THE MEDIA REPORT ON A DRUG TRAFFIKKER ARRESTED ON GOODLETTE-FRANK ROAD? NOW YOU'LL GET THE ALL THE FACTS AND SUMMARIES OF THE ALLEGATIONS. </p>
+                                <p class="uk-margin-bottom">OUR COMMUNITY HAS YEAR-ROUND RESIDENTS, SEASONAL RESIDENTS, VACATIONERS, AND OTHER VISITORS WHO WOULD LIKE TO KNOW WHAT'S GOING ON WITH ALLEGED CRIMINAL ACTIVITY IN OUR NEIGHORHOODS.  THE TYPES OF CRIMES AND THE LOCATION OF CRIMES CAN AFFECT MANY DIFFERENT THINGS, FOR EXAMPLE, REAL ESTATE VALUES. </p>
+                                <p class="uk-margin-bottom">WE ARE HERE TO REPORT ON THE DAILY CRIMINAL ACTIVITY THAT PEOPLE DON'T KNOW ABOUT BUT SHOULD.  WE SUMMARIZE ARREST INFORMATION FOR OUR MEMBERS AND ASSIST IN UNDERSTANDING WHAT IT ALL MEANS. </p>
+                                <p class="uk-margin-bottom">WE HOPE YOU FIND NAPLESPOLICEBEAT.COM INFORMATIONAL AND USEFUL.  </p>
+                                <p class="uk-margin-bottom">IF YOU HAVE ANY QUESTIONS OR COMMENTS PLEASE DO NOT HESITATE TO CONTACT US AT NAPLESPOLICEBEAT@GMAIL.COM.  </p>
                                 <p class="uk-margin-bottom">PURSUANT TO THE UNITED STATES CONSTITUTION, ALL OF THOSE ARRESTED IN AMERICA ARE PRESUMED INNOCENT UNTIL PROVEN GUILTY.  </p>
-
                             </div>
                         </div>
                     </div>

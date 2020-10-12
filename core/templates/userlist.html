@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Home Page Section -->
+<section class="main-section">
+    <div class="admin-section-top">
+        <div>
+            
+            <div class="uk-section-secondary uk-preserve-color">                    
+                <div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-dark; top: 200">
+                    {% include 'nav_admin.html' %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- itemsList -->
+<section id="all-articles">
+    <div class="uk-container">
+        <div class="head">
+            <h1 class="uk-heading-bullet">Welcome to Naples Police Beat Dashboard</h1>
+            <p class="uk-heading-line"><span>User Managemet portal</span></p>
+        </div>
+
+        
+        <div class="uk-child-width-1@s uk-margin" uk-grid>                
+            <p>All the users are listed as registered based on their type of subscription</p>
+            <div>
+                <ul uk-tab uk-switcher="animation: uk-animation-fade">
+                    <li class="uk-active"><a href="">All</a></li>
+                    <li><a href="#">Plan A</a></li>
+                    <li><a href="#">Free</a></li>
+                </ul>
+
+                <ul class="uk-switcher uk-margin">
+                    <li>
+                        <div class="uk-card uk-card-default uk-card-body uk-card-hover">                                
+                            <table class="uk-table uk-table-justify uk-table-divider">
+                                <thead>
+                                    <tr>
+                                        <th class="uk-width-small">User Name</th>
+                                        <th>Date Added</th>
+                                        <th>Subscription Type</th>
+                                        <th>Phone Number</th>
+                                        <th>Operation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for user in data %}
+                                    <tr>
+                                        <td>{{ user.username }}</td>
+                                        <td>{{ user.created_at }}</td>
+                                        <td>{{ user.subscription_type }}</td>
+                                        <td>{{ user.phone }}</td>
+                                        <!-- <td><button class="uk-button uk-button-default" type="button">Delete</button></td> -->
+                                        <td><a class="uk-button uk-button-default" href="{% url 'deleteuser' user.id %}">Delte User</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="uk-card uk-card-default uk-card-body uk-card-hover">                                
+                            <div class="uk-card uk-card-secondary uk-card-hover uk-card-body">    
+                                <div class="uk-flex uk-flex-between">
+                                    <p class="uk-card-title">Plan A</p>
+                                </div>                                                                    
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="uk-card uk-card-default uk-card-body uk-card-hover">                                
+                            <div class="uk-card uk-card-secondary uk-card-hover uk-card-body">      
+                                <div class="uk-flex uk-flex-between">
+                                    <p class="uk-card-title">Free</p>
+                                </div>                                                                  
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+<section id="footer">
+    <div class="uk-padding">                            
+        <div class="uk-flex uk-flex-wrap uk-flex-wrap-around uk-flex-between uk-flex-middle">
+            <!-- <a class="uk-navbar-item uk-logo logo-size" href="index.html"><img src="img/logo_2.png" alt="zeros"></a>    -->
+            <a class="uk-navbar-item uk-logo" href="index.html">Naples Police Beat</a>  
+            <p class="uk-text-center"> <span class="zeros-sub-head copy">Copyright</span>  © <a href="#">innsire</a>@2020</p>
+        </div>                
+    </div>
+</section>
+{% endblock %}

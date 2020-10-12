@@ -31,6 +31,18 @@ def changePassword(request):
     return render(request, 'changePassword.html', {'data': data})
 
 
+def passwordchange(request):
+    post_data = request.POST
+    user = User.objects.get(id=request.user.id)
+    if post_data['password'] == post_data['conf_pass']:
+        user.password = post_data['password']
+        user.set_password(post_data['password'])
+        user.save()
+        return redirect("/")
+    else :
+        return redirect('profile')
+    
+
 def contact(request):
     data = ""
     return render(request, 'contact.html', {'data': data})
@@ -42,6 +54,19 @@ def dashboard(request):
     faq = Faq.objects.all()
     return render(request, 'dashboard.html', {'data': documents, 'faq': faq})
 
+
+@login_required(login_url='/login/')
+def userlist(request):
+    users = AppUser.objects.all()
+    return render(request, 'userlist.html', {'data': users})
+
+
+def deleteuser(request, uid):
+    appuser = AppUser.objects.get(id=uid)
+    user = User.objects.get(id=appuser.user_id)
+    appuser.delete()
+    user.delete()
+    return redirect('userlist')
 
 @login_required(login_url='/login/')
 def documentAdd(request):
@@ -170,9 +195,11 @@ def verifylogin(request):
             auth_login(request, user)            
             return redirect('/')
 
+
 def userLogout(request):
     logout(request)
     return redirect('/')
+
 
 def profile(request):
     data = ""

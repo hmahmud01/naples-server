@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="content">
+    <section class="main-section">
+        <div class="main-section-content">
+            <div class="uk-position-relative">
+                <div>
+                    <div class="uk-grid-collapse" uk-grid>
+                        <div class="uk-width-1-1@m">
+                            <div class="uk-padding uk-margin">
+                                <div class="uk-background-cover uk-dark uk-panel uk-margin-large uk-padding">
+                                    <div class="uk-flex uk-flex-column uk-animation-slide-top-small change-password-position">
+                                        <div class="subscribe-top">
+                                            <div class="uk-card uk-card-secondary uk-card-hover uk-card-body">
+                                                <h3 class="uk-card-title">Subscription</h3>
+                                            </div>
+                                            <div class="uk-card uk-card-default uk-card-hover uk-card-body">                                                    
+                                                <div class="uk-margin-small-bottom">    
+                                                    <div class="uk-grid" uk-grid>
+                                                        <div class="uk-width-1@m">
+                                                            <form class="uk-form-stacked">
+                                                                <div class="uk-grid" uk-grid>
+                                                                    <div class="uk-width-1-2@m">
+                                                                        <div class="uk-margin">
+                                                                            <label class="uk-form-label" for="form-stacked-text">Email Address</label>
+                                                                            <div class="uk-form-controls">
+                                                                                <input class="uk-input" id="form-stacked-text" type="text" placeholder="Email">
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="uk-margin">
+                                                                            <label class="uk-form-label" for="form-stacked-text">Full Name</label>
+                                                                            <div class="uk-form-controls">
+                                                                                <input class="uk-input" id="form-stacked-text" type="text" placeholder="Full Name">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="uk-width-expand@m">
+                                                                        <div class="uk-margin">
+                                                                            <label class="uk-form-label" for="form-stacked-text">Email Address</label>
+                                                                            <div class="uk-form-controls">
+                                                                                <input class="uk-input" id="form-stacked-text" type="text" placeholder="Email">
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="uk-margin">
+                                                                            <label class="uk-form-label" for="form-stacked-text">Full Name</label>
+                                                                            <div class="uk-form-controls">
+                                                                                <input class="uk-input" id="form-stacked-text" type="text" placeholder="Full Name">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>                 
+                                                                <a type="button" class="uk-button uk-button-danger uk-width-1-1" href="/">Submit</a>
+                                                            </form>
+                                                        </div>
+                                                    </div>                                                                                    
+                                                </div>
+                                            </div>                                                
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                          
+                    </div>
+                </div>
+                
+                {% include 'nav_app.html' %}
+            </div>
+            
+        </div>
+    </section>
+
+
+    <!-- Page Content Section -->
+    {% include 'footer.html' %}
+</div>
+{% endblock %}

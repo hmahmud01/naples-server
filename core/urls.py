@@ -23,6 +23,7 @@ urlpatterns = [
     path('verifylogin/', views.verifylogin, name="verifylogin"),
     path('userLogout/', views.userLogout, name="userLogout"),
     path('profile/', views.profile, name="profile"),
+    path('subscription/', views.subscription, name="subscription"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

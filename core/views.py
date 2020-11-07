@@ -210,3 +210,7 @@ def profile(request):
     appuser = AppUser.objects.get(user_id=user_id)
     print(user_id)
     return render(request, 'profile.html', {'data': appuser})
+
+def subscription(request):
+    data = ""
+    return render(request, 'subscription.html', {'data': data})

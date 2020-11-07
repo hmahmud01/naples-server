@@ -50,9 +50,9 @@
                                                             <div class="uk-margin-bottom">
                                                                 <h4>Subscription</h4>
                                                                 <hr>
-                                                                <p>You Have subscribed to {{ data.subscription_type }} ({{ data.charge }} $/month)</p>
+                                                                <p>You Have subscribed to {{ data.subscription_type }} ($/month)</p>
                                                                 <p>If You Want to update the subscription please click on the following link.</p>
-                                                                <a class="uk-button uk-button-text" href="#">Update Subscription</a>
+                                                                <a class="uk-button uk-button-text" href="{% url 'subscription' %}">Update Subscription</a>
                                                             </div>
                                                             <div class="uk-margin-bottom">
                                                                 <h4>Change Password</h4>

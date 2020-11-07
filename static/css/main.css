@@ -176,6 +176,10 @@ p{
     width: 92%;
 }
 
+.subscription-position {    
+    top: 20%;    
+}
+
 .faq-content{
     margin-top: 120px;
 }

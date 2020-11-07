@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout
 from django.contrib.auth.decorators import login_required
 
-from core.models import Document, TopStory, AppUser, Faq
+from core.models import Document, TopStory, AppUser, Faq, Subscription
 
 def home(request):
     documents = Document.objects.all()    
@@ -211,6 +211,45 @@ def profile(request):
     print(user_id)
     return render(request, 'profile.html', {'data': appuser})
 
+
 def subscription(request):
     data = ""
     return render(request, 'subscription.html', {'data': data})
+
+
+def subscriptionsubmit(request):
+    uid = request.user.id
+    appuser = AppUser.objects.get(user_id=uid)    
+    post_data = request.POST
+
+    if appuser.subscription is None:
+        print("not subsribed yet")
+        subscription = Subscription(
+            first_name = post_data['first_name'],
+            last_name = post_data['last_name'],
+            phone = post_data['phone'],
+            email = post_data['email'],
+            address = post_data['address'],
+            subscription_type = post_data['subscription_type'],
+            charge = post_data['subscription_type'],
+        )
+
+        subscription.save()
+        appuser.subscription = subscription
+        appuser.subscription_type = post_data['subscription_type']
+        appuser.save()
+        return redirect("profile")
+    else:
+        print("subscript exists")
+        appuser.subscription.first_name = post_data['first_name'],
+        appuser.subscription.last_name = post_data['last_name'],
+        appuser.subscription.phone = post_data['phone'],
+        appuser.subscription.email = post_data['email'],
+        appuser.subscription.address = post_data['address'],
+        appuser.subscription.subscription_type = post_data['subscription_type'],
+        appuser.subscription.charge = post_data['subscription_type'],
+        appuser.subscription.save()
+        appuser.subscription_type = post_data['subscription_type']
+
+        return redirect("profile")
+    

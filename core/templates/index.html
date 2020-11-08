@@ -71,26 +71,28 @@
 
     <section class="list-of-news">
         <div class="uk-container uk-padding">
+            {% if topstory %}
             <div class="uk-width-1-1@s" uk-grid>
                 <div>
                     <div class="uk-card uk-card-default">
                         <div class="uk-card-media-top">
-                            <img src="/static/img/home.jpg" alt="">
+                            <img src="/media/{{ topstory.document.thumbnail }}" alt="">
                         </div>
                         <div class="uk-card-body">
                             <div class="uk-flex uk-flex-between">
-                                <h3 class="uk-card-title">Top Story Today</h3>
+                                <h3 class="uk-card-title">{{ topstory.document.title }}</h3>
                                 <p class="uk-text-meta uk-margin-remove-top">
-                                    <time datetime="2016-04-01T19:00">April 01, 2016</time>                                    
+                                    <time datetime="2016-04-01T19:00">{{ topstory.document.created_at.date }}</time>                                    
                                 </p>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                            <a href="" class="uk-button uk-button-text">Read more</a>
+                            <p>{{ topstory.document.summary }}</p>
+                            <a href="{% url 'article' topstory.document.id %}" class="uk-button uk-button-text">Read more</a>
                         </div>
 
                     </div>
                 </div>
             </div>
+            {% endif %}
             <div class="uk-width-1-1@s" uk-grid>
                 <div class="uk-width-2-3@s">
                     <h3>List of All Stories</h3>
@@ -267,9 +269,9 @@
                 <div class="uk-margin">
                     <div class="uk-form-label">Payment Method</div>
                     <div class="uk-form-controls">
-                        <label><input class="uk-radio" type="radio" name="subscription_type" value="planA"> Method 1</label><br>
-                        <label><input class="uk-radio" type="radio" name="subscription_type" value="planb"> method 2</label><br>
-                        <label><input class="uk-radio" type="radio" name="subscription_type" value="free"> free</label>
+                        <label><input class="uk-radio" type="radio" name="subscription_type" value="15.0"> 15.0$/Month </label><br>
+                        <label><input class="uk-radio" type="radio" name="subscription_type" value="29.99"> 29.99$/Month </label><br>
+                        <label><input class="uk-radio" type="radio" name="subscription_type" value="free"> 0.00$/Month </label>
                     </div>
                 </div>        
                 <div class="uk-margin">

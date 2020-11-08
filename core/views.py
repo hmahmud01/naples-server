@@ -3,12 +3,17 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout
 from django.contrib.auth.decorators import login_required
 
-from core.models import Document, TopStory, AppUser, Faq
+from core.models import Document, TopStory, AppUser, Faq, Subscription
 
 def home(request):
     documents = Document.objects.all()    
     faq = Faq.objects.all()
-    return render(request, 'index.html', {'data' : documents, 'faq': faq})
+    topstory = TopStory.objects.all().last()
+    if topstory:
+        return render(request, 'index.html', {'data' : documents, 'faq': faq, 'topstory': topstory})
+    else:
+        return render(request, 'index.html', {'data' : documents, 'faq': faq})
+    
 
 
 def faq(request):
@@ -56,6 +61,38 @@ def dashboard(request):
         return render(request, 'dashboard.html', {'data': documents, 'faq': faq})   
     else:
         return redirect('/')
+
+
+@login_required(login_url='/login/')
+def topstory(request):
+    documents = Document.objects.all()
+    topstory = TopStory.objects.all()
+    ts_id = ""
+    if topstory.last():
+        ts_id = topstory.last().document.id
+    else:
+        ts_id = -1
+    if request.user.is_superuser:
+        return render(request, 'topstory.html', {'data': documents, 'topstory': topstory, 'ts_id': ts_id})       
+    else:
+        return redirect('/')
+
+
+@login_required(login_url='/login/')
+def maketopstory(request, did):
+    doc = Document.objects.get(id=did)
+    ts = TopStory(
+        document = doc,
+    )
+    ts.save()
+    return redirect('topstory')
+
+
+@login_required(login_url='/login/')
+def removetopstory(request, did):
+    ts = TopStory.objects.get(document__id=did)
+    ts.delete()
+    return redirect('topstory')
 
 
 @login_required(login_url='/login/')
@@ -211,6 +248,54 @@ def profile(request):
     print(user_id)
     return render(request, 'profile.html', {'data': appuser})
 
-def subscription(request):
+
+def subscription(request):    
     data = ""
+    uid = request.user.id
+    appuser = AppUser.objects.get(user_id=uid)
+
+    if appuser.subscription is None:
+        data = "Unsubscribed"
+    else :
+        data = appuser.subscription
     return render(request, 'subscription.html', {'data': data})
+
+
+def subscriptionsubmit(request):
+    uid = request.user.id
+    appuser = AppUser.objects.get(user_id=uid)    
+    post_data = request.POST
+
+    if appuser.subscription is None:
+        print("not subsribed yet")
+        subscription = Subscription(
+            first_name = post_data['first_name'],
+            last_name = post_data['last_name'],
+            phone = post_data['phone'],
+            email = post_data['email'],
+            address = post_data['address'],
+            subscription_type = post_data['subscription_type'],
+            charge = post_data['subscription_type'],
+        )
+
+        subscription.save()
+        appuser.subscription = subscription
+        appuser.subscription_type = post_data['subscription_type']
+        appuser.save()
+        return redirect("profile")
+    else:
+        print(post_data)
+        print("subscript exists")
+        appuser.subscription.first_name = post_data['first_name'],
+        appuser.subscription.last_name = post_data['last_name'],
+        appuser.subscription.phone = post_data['phone'],
+        appuser.subscription.email = post_data['email'],
+        appuser.subscription.address = post_data['address'],
+        appuser.subscription.subscription_type = post_data['subscription_type'],
+        appuser.subscription.charge = post_data['subscription_type'],
+        appuser.subscription.save()
+        appuser.subscription_type = post_data['subscription_type']
+        appuser.save()
+
+        return redirect("profile")
+    

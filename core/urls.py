@@ -13,6 +13,9 @@ urlpatterns = [
     path('passwordchange/', views.passwordchange, name="passwordchange"),
     path('contact/', views.contact, name="contact"),
     path('dashboard/', views.dashboard, name="dashboard"),
+    path('topstory/', views.topstory, name='topstory'),
+    path('maketopstory/<int:did>/', views.maketopstory, name='maketopstory'),
+    path('removetopstory/<int:did>/', views.removetopstory, name='removetopstory'),
     path('userlist/', views.userlist, name="userlist"),
     path('deleteuser/<int:uid>', views.deleteuser, name="deleteuser"),
     path('documentadd/', views.documentAdd, name="documentadd"),
@@ -24,6 +27,7 @@ urlpatterns = [
     path('userLogout/', views.userLogout, name="userLogout"),
     path('profile/', views.profile, name="profile"),
     path('subscription/', views.subscription, name="subscription"),
-]
+    path('subscriptionsubmit/', views.subscriptionsubmit, name="subscriptionsubmit"),
+]   
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -20,6 +20,7 @@
                                                 <div class="uk-margin-small-bottom">    
                                                     <div class="uk-grid" uk-grid>
                                                         <div class="uk-width-1-1@m">
+                                                            {% if data == "Unsubscribed" %}
                                                             <form class="uk-form-stacked" method="post" action="{% url 'subscriptionsubmit' %}">{% csrf_token %}
                                                                 <div uk-grid>
                                                                     <div class="uk-width-1-2@m">
@@ -71,6 +72,59 @@
                                                                     </div>                                                                    
                                                                 </div>   
                                                             </form>
+                                                            {% else %}
+                                                            <form class="uk-form-stacked" method="post" action="{% url 'subscriptionsubmit' %}">{% csrf_token %}
+                                                                <div uk-grid>
+                                                                    <div class="uk-width-1-2@m">
+                                                                        <div class="uk-margin">
+                                                                            <label class="uk-form-label" for="first_name">First Name</label>
+                                                                            <div class="uk-form-controls">
+                                                                                <input class="uk-input" id="first_name" name="first_name" type="text" placeholder="First Name" value="{{ data.first_name }}">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="uk-width-expand@m">
+                                                                        <div class="uk-margin">
+                                                                            <label class="uk-form-label" for="last_name">Last Name</label>
+                                                                            <div class="uk-form-controls">
+                                                                                <input class="uk-input" id="last_name" name="last_name" type="text" placeholder="Last Name" value="{{ data.last_name }}">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="uk-width-1-1@m">
+                                                                        <div class="uk-margin">
+                                                                            <label class="uk-form-label" for="phone">Phone Number</label>
+                                                                            <div class="uk-form-controls">
+                                                                                <input class="uk-input" id="phone" name="phone" type="text" placeholder="Phone Number" value="{{ data.phone }}">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="uk-margin">
+                                                                            <label class="uk-form-label" for="email">Email Address</label>
+                                                                            <div class="uk-form-controls">
+                                                                                <input class="uk-input" id="email" name="email" type="email" placeholder="Email Address" value="{{ data.email }}">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="uk-margin">
+                                                                            <label class="uk-form-label" for="address">Address</label>
+                                                                            <div class="uk-form-controls">
+                                                                                <input class="uk-input" id="address" name="address" type="text" placeholder="Address" value="{{ data.address }}">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="uk-margin">
+                                                                            <div class="uk-form-label">Payment Method</div>
+                                                                            <div class="uk-form-controls">
+                                                                                <label><input class="uk-radio" type="radio" name="subscription_type" value="15.0"> 15.0$/Month </label><br>
+                                                                                <label><input class="uk-radio" type="radio" name="subscription_type" value="29.99"> 29.99$/Month </label><br>
+                                                                                <label><input class="uk-radio" type="radio" name="subscription_type" value="0.00"> 0.00$/Month </label>
+                                                                            </div>
+                                                                        </div>  
+                                                                    </div>                                                                    
+                                                                    <div class="uk-width-1@m">
+                                                                        <button type="submit" class="uk-button uk-button-danger" >Submit</button>
+                                                                    </div>                                                                    
+                                                                </div>   
+                                                            </form>
+                                                            {% endif %}                                                            
                                                         </div>
                                                     </div>                                                                                    
                                                 </div>

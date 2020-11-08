@@ -25,13 +25,13 @@ class TopStory(models.Model):
         return self.document
 
 class Subscription(models.Model):
-    first_name = models.CharField(max_length=24, null=True, blank=True)
-    last_name = models.CharField(max_length=24, null=True, blank=True)
-    phone = models.CharField(max_length=21, null=True, blank=True)
+    first_name = models.CharField(max_length=128, null=True, blank=True)
+    last_name = models.CharField(max_length=128, null=True, blank=True)
+    phone = models.CharField(max_length=128, null=True, blank=True)
     email = models.EmailField(max_length=128, null=True, blank=True)
     address = models.CharField(max_length=256, null=True, blank=True)
     subscription_type = models.CharField(max_length=24, null=True, blank=True)
-    charge = models.CharField(max_length=5, null=True, blank=True)
+    charge = models.CharField(max_length=24, null=True, blank=True)
 
     def __str__(self):
         return self.subscription_type

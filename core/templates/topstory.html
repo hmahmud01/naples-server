@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Home Page Section -->
+<section class="main-section">
+    <div class="admin-section-top">
+        <div>
+            
+            <div class="uk-section-secondary uk-preserve-color">                    
+                <div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-dark; top: 200">
+                    {% include 'nav_admin.html' %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- itemsList -->
+<section id="all-articles">
+    <div class="uk-container">
+        <div class="head">
+            <h1 class="uk-heading-bullet">Top Story panel</h1>
+            <p class="uk-heading-line"><span>All the Documents which are created are listed here.</span></p>
+        </div>
+
+        <div class="uk-child-width-1@s uk-margin" uk-grid>                
+            <p>Current Top Story</p>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body uk-card-hover">                                
+                    <table class="uk-table uk-table-justify uk-table-divider">
+                        <thead>
+                            <tr>
+                                <th class="uk-width-small">Document Id</th>
+                                <th>Date Added</th>
+                                <th>Summary</th>
+                                <th>Type</th>
+                                <!-- <th>Operation</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for doc in topstory %}
+                            <tr>
+                                <td><a href="">Document {{ doc.document.id }}</a></td>
+                                <td>{{ doc.document.created_at.date }}</td>
+                                <td>{{ doc.document.summary }}</td>
+                                <td>{{ doc.document.doctype }}</td>
+                                <!-- <td><a class="uk-button uk-button-default" type="button" href="{% url 'maketopstory' doc.id %}" >Make Top Story</a></td> -->
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="uk-child-width-1@s uk-margin" uk-grid>                
+            <p>All The documents are listed here with summarized information</p>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body uk-card-hover">                                
+                    <table class="uk-table uk-table-justify uk-table-divider">
+                        <thead>
+                            <tr>
+                                <th class="uk-width-small">Document Id</th>
+                                <th>Date Added</th>
+                                <th>Summary</th>
+                                <th>Type</th>
+                                <th>Operation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for doc in data %}
+                            <tr>
+                                <td><a href="">Document {{ doc.id }}</a></td>
+                                <td>{{ doc.created_at.date }}</td>
+                                <td>{{ doc.summary }}</td>
+                                <td>{{ doc.doctype }}</td>
+                                {% if doc.id == ts_id %}
+                                <td><a class="uk-button uk-button-default" type="button" href="{% url 'removetopstory' doc.id %}" >Remove from top story</a></td>
+                                {% else %}
+                                <td><a class="uk-button uk-button-default" type="button" href="{% url 'maketopstory' doc.id %}" >Make Top Story</a></td>
+                                {% endif %}                                
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- <div class="uk-child-width-1@s uk-margin" uk-grid>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body uk-card-hover">                                
+                    <div class="uk-card uk-card-secondary uk-card-hover uk-card-body">      
+                        <div class="uk-flex uk-flex-between">
+                            <p class="uk-card-title">All Faq's are listed as below</p>
+                            <a class="uk-button uk-button-secondary" href="#add-faq" uk-toggle>Add a Faq</a>
+                        </div>                                                                  
+                    </div>
+                    <table class="uk-table uk-table-justify uk-table-divider">
+                        <thead>
+                            <tr>
+                                <th class="uk-width-small">Faq Id</th>                                
+                                <th>Question</th>
+                                <th>Description</th>                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for question in faq %}
+                            <tr>
+                                <td><a href="">Faq {{ question.id }}</a></td>
+                                <td>{{ question.title }}</td>
+                                <td>{{ question.description }}</td>                                                                        
+                            </tr>                           
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>         -->
+    </div>
+
+    <!-- <a class="uk-button uk-button-default" href="#modal-sections" uk-toggle>Open</a> -->
+
+    <!-- <div id="add-faq" class="uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <form action="{% url 'savefaq' %}" class="uk-form-stacked uk-margin-large" method="post">{% csrf_token %}
+                <div class="uk-modal-header">
+                    <h2 class="uk-modal-title">Add a Faq to the list</h2>
+                </div>
+                <div class="uk-modal-body">
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="title">Title</label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input" id="title" type="text" name="title" placeholder="Title">
+                        </div>
+                    </div>
+
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="description">Description</label>
+                        <div class="uk-form-controls">
+                            <textarea class="uk-textarea" id="description" rows="5" name="description" placeholder="Description"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-modal-footer uk-text-right">
+                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                    <button class="uk-button uk-button-primary" type="submit">Save</button>
+                </div>
+            </form>
+        </div>
+    </div> -->
+</section>
+
+
+
+<section id="footer">
+    <div class="uk-padding">                            
+        <div class="uk-flex uk-flex-wrap uk-flex-wrap-around uk-flex-between uk-flex-middle">
+            <!-- <a class="uk-navbar-item uk-logo logo-size" href="index.html"><img src="img/logo_2.png" alt="zeros"></a>    -->
+            <a class="uk-navbar-item uk-logo" href="index.html">Naples Police Beat</a>  
+            <p class="uk-text-center"> <span class="zeros-sub-head copy">Copyright</span>  © <a href="#">innsire</a>@2020</p>
+        </div>                
+    </div>
+</section>
+{% endblock %}

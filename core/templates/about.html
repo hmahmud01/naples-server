@@ -101,6 +101,63 @@
     </div>
 </section>
 
+<!-- Register On the GO -->
+<div id="client-request" uk-offcanvas="mode: push; overlay: true">
+    <div class="uk-offcanvas-bar">                        
+        <button class="uk-offcanvas-close" type="button" uk-close></button>                                                
+        <h3 class="uk-h4 zeros-head uk-text-muted">Register</h3>      
+        <p class="zeros-sub-head">On the go</p>
+
+        <form class="uk-form-stacked" method="post" action="{% url 'createaccount' %}">{% csrf_token %}
+            <div class="uk-margin">
+                <label class="uk-form-label" for="client_name">Name</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="client_name" type="text" name="client_name" placeholder="Full Name">
+                </div>
+            </div>
+        
+            <div class="uk-margin">
+                <label class="uk-form-label" for="client_phone">Phone Number</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="client_phone" type="text" name="client_phone" placeholder="Phone Number">
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-form-label" for="client_email">Email Address</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="client_email" type="email" name="client_email" placeholder="Email Address">
+                </div>
+            </div>
+            <div class="uk-margin">
+                <label class="uk-form-label" for="pass">Password</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="pass" type="password" name="pass" placeholder="Password">
+                </div>
+            </div>
+            <div class="uk-margin">
+                <label class="uk-form-label" for="conf_pass">Confirm Password</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="conf_pass" type="password" name="conf_pass" placeholder="Confirm Password">
+                </div>
+            </div>
+        
+            <div class="uk-margin">
+                <div class="uk-form-label">Payment Method</div>
+                <div class="uk-form-controls">
+                    <label><input class="uk-radio" type="radio" name="subscription_type" value="15.0"> 15.0$/Month </label><br>
+                    <label><input class="uk-radio" type="radio" name="subscription_type" value="29.99"> 29.99$/Month </label><br>
+                    <label><input class="uk-radio" type="radio" name="subscription_type" value="free"> 0.00$/Month </label>
+                </div>
+            </div>        
+            <div class="uk-margin">
+                <button class="uk-button uk-button-danger" type="submit">Register</button>
+            </div>    
+        </form>
+    </div>
+</div>
+
+
 <section id="footer">
     <div class="uk-padding">                            
         <div class="uk-flex uk-flex-wrap uk-flex-wrap-around uk-flex-between uk-flex-middle">

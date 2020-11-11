@@ -5,35 +5,60 @@ from django.contrib.auth.decorators import login_required
 
 from core.models import Document, TopStory, AppUser, Faq, Subscription
 
-def home(request):
+def home(request):    
     documents = Document.objects.all()    
     faq = Faq.objects.all()
     topstory = TopStory.objects.all().last()
+
+    username = "USER"
+    if request.user.is_authenticated:
+        uid = request.user.id
+        appuser = AppUser.objects.get(user_id=uid)
+        username = appuser.name        
+
     if topstory:
-        return render(request, 'index.html', {'data' : documents, 'faq': faq, 'topstory': topstory})
+        return render(request, 'index.html', {'data' : documents, 'faq': faq, 'topstory': topstory, 'username': username})
     else:
-        return render(request, 'index.html', {'data' : documents, 'faq': faq})
+        return render(request, 'index.html', {'data' : documents, 'faq': faq, 'username':username})
     
 
 
-def faq(request):
+def faq(request):    
     data = ""
-    return render(request, 'faq.html', {'data': data})
+    username = "USER"
+    if request.user.is_authenticated:
+        uid = request.user.id
+        appuser = AppUser.objects.get(user_id=uid)
+        username = appuser.name     
+    return render(request, 'faq.html', {'data': data, 'username':username})
 
 
 def about(request):
     data = ""
-    return render(request, 'about.html', {'data': data})
+    username = "USER"
+    if request.user.is_authenticated:
+        uid = request.user.id
+        appuser = AppUser.objects.get(user_id=uid)
+        username = appuser.name    
+    return render(request, 'about.html', {'data': data, 'username':username})
 
 
 def article(request, aid):
     article = Document.objects.get(id=aid)
-    return render(request, 'article.html', {'data': article})
+    username = "USER"
+    if request.user.is_authenticated:
+        uid = request.user.id
+        appuser = AppUser.objects.get(user_id=uid)
+        username = appuser.name    
+    return render(request, 'article.html', {'data': article, 'username':username})
 
 
 def changePassword(request):
     data = ""
-    return render(request, 'changePassword.html', {'data': data})
+    user_id = request.user.id
+    appuser = AppUser.objects.get(user_id=user_id)
+    username = appuser.name
+    return render(request, 'changePassword.html', {'data': data, 'username':username})
 
 
 def passwordchange(request):
@@ -194,7 +219,7 @@ def createAccount(request):
     data = "failed"
     post_data = request.POST
     if post_data['pass'] == post_data['conf_pass']:
-        user = User.objects.create_user(post_data['client_phone'], post_data['client_email'], post_data['pass'])
+        user = User.objects.create_user(post_data['client_email'], post_data['client_email'], post_data['pass'])
         
         appuser = AppUser(
             user = user,
@@ -245,8 +270,9 @@ def profile(request):
     data = ""
     user_id = request.user.id
     appuser = AppUser.objects.get(user_id=user_id)
+    username = appuser.name
     print(user_id)
-    return render(request, 'profile.html', {'data': appuser})
+    return render(request, 'profile.html', {'data': appuser, 'username':username })
 
 
 def subscription(request):    

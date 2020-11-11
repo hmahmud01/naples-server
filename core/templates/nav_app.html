@@ -53,7 +53,7 @@
                     
                     {% if user.is_authenticated %}
                     <li>
-                        <a href="#">{{request.user.username}}</a>                        
+                        <a href="#">{{ username }}</a>                        
                         <div class="uk-navbar-dropdown">
                             <ul class="uk-nav uk-navbar-dropdown-nav uk-text-right">
                                 <li class="uk-active"><a href="{% url 'profile' %}">Profile</a></li>

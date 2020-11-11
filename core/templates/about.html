@@ -3,71 +3,7 @@
 
 {% block content %}
 <!-- Home Page Section -->
-<section class="main-section">
-    <div class="admin-section-top">
-        <div>
-            <div class="uk-section-secondary uk-preserve-color">
-                <div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-dark; top: 200">
-                    <nav class="uk-navbar-container uk-padding uk-padding-remove-vertical" uk-navbar>
-                        <div class="uk-navbar-left">
-                            <ul class="uk-navbar-nav">
-                                <!-- <a class="uk-navbar-item uk-logo" href="index.html">Logo</a> -->
-                                <li>
-                                    <a href="/">Home</a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'about' %}">About Us</a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'contact' %}">Contact Us</a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'faq' %}">FAQ</a>
-                                </li>
-                            </ul>                            
-                        </div>
-                        <div class="uk-navbar-right">                            
-                            <ul class="uk-navbar-nav">
-                                
-                                <li>
-                                    <div>
-                                        <a class="uk-navbar-toggle" uk-search-icon href="#"></a>
-                                        <div class="uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
-                                            <form class="uk-search uk-search-navbar uk-width-1-1">
-                                                <input class="uk-search-input" type="search" placeholder="Search..." autofocus>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </li>
-                                
-                                <li>
-                                    <a href="" uk-toggle="target: #client-request">Register</a>
-                                </li>
-                                {% if user.is_authenticated %}
-                                <li>
-                                    <a href="#">{{request.user.username}}</a>                        
-                                    <div class="uk-navbar-dropdown">
-                                        <ul class="uk-nav uk-navbar-dropdown-nav uk-text-right">
-                                            <li class="uk-active"><a href="{% url 'profile' %}">Profile</a></li>
-                                            <li><a href="{% url 'changepassword' %}">Change Password</a></li>
-                                            <li><a href="{% url 'userLogout' %}">Logout</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                {% else %}
-                                <li>
-                                    <a href="{% url 'login' %}" uk-toggle>Login</a>
-                                </li>  
-                                {% endif %}
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
+{% include 'nav_staticpages.html' %}
 
 
 <!-- itemsList -->

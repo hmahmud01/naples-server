@@ -65,6 +65,10 @@ h5{
     border-radius: 50%;    
 }
 
+.text-line {
+    text-decoration: overline underline;
+}
+
 .shadow-dark{
     -webkit-box-shadow: 5px 5px 30px -20px rgba(0,0,0,0.62);
     -moz-box-shadow: 5px 5px 30px -20px rgba(0,0,0,0.62);
@@ -114,13 +118,22 @@ h5{
     /* font-family: 'Dancing Script', cursive; */
     margin-bottom: 5px;
     font-size: 2.7rem;
+    font-weight: bold;
     color:#000 !important;
 }
 
 .zeros-sub-head{
     font-family: 'Montserrat', sans-serif;
     font-size: 2.3rem;
+    font-weight: bold;
     color:#5a3a68;
+}
+
+a { color: #5a3a68; }
+
+.zeros-head{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.3rem;
 }
 
 .logo-size{
@@ -188,5 +201,5 @@ h5{
 }
 
 .faq-content{
-    margin-top: 120px;
+    margin-top: 80px;
 }

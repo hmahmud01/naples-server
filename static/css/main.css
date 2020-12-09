@@ -144,7 +144,16 @@ h5{
     font-family: 'Cormorant Garamond', serif;
 }
 
+.home-text{
+    font-size: 1.2rem;
+    color: black;
+}
+
 p{
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.uk-navbar-nav > li > a{
     font-family: 'Cormorant Garamond', serif;
 }
 

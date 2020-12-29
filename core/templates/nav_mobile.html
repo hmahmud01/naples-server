@@ -1,0 +1,22 @@
+<nav class="uk-navbar uk-navbar-container uk-margin uk-hidden@s">
+    <div class="uk-navbar-left">
+        <a class="uk-navbar-toggle" href="#mobile-nav" uk-toggle>
+            <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span>
+        </a>
+    </div>
+</nav>
+<div id="mobile-nav" uk-offcanvas="overlay: true">
+    <div class="uk-offcanvas-bar">
+
+        <ul class="uk-nav uk-nav-default">
+            <li class="uk-nav-header">Header</li>
+            <li><a href="/"><span class="uk-margin-small-right" uk-icon="icon: table"></span> Home</a></li>
+            <li><a href="{% url 'about' %}"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> About us</a></li>
+            <li><a href="{% url 'contact' %}"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Contact Us</a></li>
+            <li><a href="{% url 'faq' %}"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> FAQ</a></li>
+            <li class="uk-nav-divider"></li>
+            <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: trash"></span> Login</a></li>
+            <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: trash"></span> Register</a></li>
+        </ul>
+    </div>
+</div>

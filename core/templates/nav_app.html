@@ -1,5 +1,5 @@
 <div class="uk-position-top">
-    <div class="uk-section uk-section-default uk-padding-remove-vertical">
+    <div class="uk-section uk-section-default uk-padding-remove-vertical uk-visible@m">
         <div class="uk-container uk-padding-small uk-padding-remove-bottom">
             <div class="uk-flex uk-flex-between">
                 <div class="uk-text-center uk-text-uppercase">
@@ -21,7 +21,8 @@
         </div>
     </div>
     <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
-        <nav class="uk-navbar-container uk-padding uk-padding-remove-vertical" uk-navbar>
+        {% include 'nav_mobile.html' %}
+        <nav class="uk-navbar-container uk-padding uk-padding-remove-vertical uk-visible@m" uk-navbar>
             <div class="uk-navbar-left">
                 <ul class="uk-navbar-nav">
                     <!-- <a class="uk-navbar-item uk-logo" href="index.html">Logo</a> -->
@@ -52,9 +53,7 @@
                             </div>
                         </div>
                     </li>
-                    
-                                                         
-                    
+
                     {% if user.is_authenticated %}
                     <li>
                         <a href="#">{{ username }}</a>                        
@@ -77,7 +76,7 @@
                 </ul>
             </div>
         </nav>
-        <div class="uk-section uk-padding-remove-vertical nav-border">
+        <div class="uk-section uk-padding-remove-vertical nav-border uk-visible@m">
         </div>
     </div>
     
